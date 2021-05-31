@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import './Style/App.css';
 import Pinpad from "./components/Pinpad";
 import './Style/Pin.css';
 

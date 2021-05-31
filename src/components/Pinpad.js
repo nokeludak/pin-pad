@@ -1,7 +1,8 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
+import Template from "./Template";
 
 function Pinpad() {
-   const [pin, setPin] = useState("");
+  const [pin, setPin] = useState("");
   const [message, setMessage] = useState("");
   const [tries, setTries] = useState(1);
 
@@ -9,7 +10,7 @@ function Pinpad() {
     setPin("");
     setMessage("LOCKED");
     setTries(1);
-  }
+  };
   const enterPin = () => {
     setTries(tries + 1);
     if (pin !== "1234") {
@@ -19,7 +20,6 @@ function Pinpad() {
           setMessage("");
         }, 30000);
         clearState();
-
       } else {
         setMessage("ERROR");
         setPin("");
@@ -29,9 +29,9 @@ function Pinpad() {
       setMessage("OK");
       setPin("");
     }
-  }; 
+  };
 
-   const updatePin = (value) => {
+  const updatePin = (value) => {
     if (message === "LOCKED") {
       return;
     }
@@ -44,98 +44,18 @@ function Pinpad() {
     }
     setMessage((message) => message + "*");
   };
+
   const clearPin = () => {
-        setPin("");
+    setPin("");
     setMessage("");
-  }; 
+  };
 
   return (
     <div className="pin-login">
       <div className="text text--error">{message}</div>
 
-      <div className="numpad">
-        <button
-          className="key"
-          onClick={(e) => updatePin(e.target.value)}
-          value="1"
-        >
-          1
-        </button>
-        <button
-          className="key"
-          onClick={(e) => updatePin(e.target.value)}
-          value="2"
-        >
-          2
-        </button>
-        <button
-          className="key"
-          onClick={(e) => updatePin(e.target.value)}
-          value="3"
-        >
-          3
-        </button>
-        <br></br>
-        <button
-          className="key"
-          onClick={(e) => updatePin(e.target.value)}
-          value="4"
-        >
-          4
-        </button>
-        <button
-          className="key"
-          onClick={(e) => updatePin(e.target.value)}
-          value="5"
-        >
-          5
-        </button>
-        <button
-          className="key"
-          onClick={(e) => updatePin(e.target.value)}
-          value="6"
-        >
-          6
-        </button>
-        <br></br>
-        <button
-          className="key"
-          onClick={(e) => updatePin(e.target.value)}
-          value="7"
-        >
-          7
-        </button>
-        <button
-          className="key"
-          onClick={(e) => updatePin(e.target.value)}
-          value="8"
-        >
-          8
-        </button>
-        <button
-          className="key"
-          onClick={(e) => updatePin(e.target.value)}
-          value="9"
-        >
-          9
-        </button>
-        <br></br>
-        <button className="keypad" onClick={clearPin}>
-          clear
-        </button>
-        <button
-          className="key"
-          onClick={(e) => updatePin(e.target.value)}
-          value="0"
-        >
-          0
-        </button>
-        <button className="keypad" onClick={enterPin}>
-          enter
-        </button>
-      </div>
+      <Template updatePin={updatePin} enterPin={enterPin} clearPin={clearPin} />
     </div>
   );
 }
 export default Pinpad;
-
