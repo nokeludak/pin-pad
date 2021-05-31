@@ -1,0 +1,74 @@
+.pin-login {
+    display: inline-block;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 28px;
+    border: 3px solid rgb(0, 0, 0);
+    background-color: rgb(42, 102, 158);
+    margin-top: 10px;
+    
+    
+}
+
+
+.text {
+    margin: 10px auto 10px auto;
+    padding: 10px;
+    display: block;
+    width: 50%;
+    font-size: 0.5em;
+    text-align: center;
+    letter-spacing: 0.2em;
+    background: rgba(0, 0, 0, 0.15);
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    cursor: default;
+    height: 20px;
+    
+    
+}
+.text--error {
+    color: #f7f7f7;
+    background: #000000;
+   
+}
+
+
+.key {
+    width: 60px;
+    height: 60px;
+    margin: 10px;
+    background: rgba(228, 214, 214, 0.15);
+    color: #000000;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 25px;
+    border: 2px solid black;
+}
+.key:active {
+    background: rgba(0, 0, 0, 0.25);
+}
+
+.keypad {
+    width: 60px;
+    height: 60px;
+    margin: 10px;
+    background: rgba(0, 0, 0, 0.15);
+    color: #000000;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 19px;
+    border: 2px solid black;
+}
+.keypad:active {
+    background: rgba(0, 0, 0, 0.25);
+}
