@@ -1,14 +1,16 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 
 function Pinpad() {
-  const [pin, setPin] = useState("");
+   const [pin, setPin] = useState("");
   const [message, setMessage] = useState("");
   const [tries, setTries] = useState(1);
 
-  const enter = () => {
-    if (message === "LOCKED") {
-      return;
-    }
+  const clearState = () => {
+    setPin("");
+    setMessage("LOCKED");
+    setTries(1);
+  }
+  const enterPin = () => {
     setTries(tries + 1);
     if (pin !== "1234") {
       if (tries === 3) {
@@ -16,18 +18,20 @@ function Pinpad() {
         setTimeout(() => {
           setMessage("");
         }, 30000);
+        clearState();
+
       } else {
         setMessage("ERROR");
         setPin("");
       }
     } else {
-      setTries(1);
+      setTries(0);
       setMessage("OK");
       setPin("");
     }
-  };
+  }; 
 
-  const updatePin = (value) => {
+   const updatePin = (value) => {
     if (message === "LOCKED") {
       return;
     }
@@ -40,13 +44,10 @@ function Pinpad() {
     }
     setMessage((message) => message + "*");
   };
-  const clear = () => {
-    if (message === "LOCKED") {
-      return;
-    }
-    setPin("");
+  const clearPin = () => {
+        setPin("");
     setMessage("");
-  };
+  }; 
 
   return (
     <div className="pin-login">
@@ -119,7 +120,7 @@ function Pinpad() {
           9
         </button>
         <br></br>
-        <button className="keypad" onClick={clear}>
+        <button className="keypad" onClick={clearPin}>
           clear
         </button>
         <button
@@ -129,7 +130,7 @@ function Pinpad() {
         >
           0
         </button>
-        <button className="keypad" onClick={enter}>
+        <button className="keypad" onClick={enterPin}>
           enter
         </button>
       </div>
