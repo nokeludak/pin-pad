@@ -12,6 +12,9 @@ function Pinpad() {
     setTries(1);
   };
   const enterPin = () => {
+    if(message === 'LOCKED'){
+      return
+    }
     setTries(tries + 1);
     if (pin !== "1234") {
       if (tries === 3) {
@@ -45,7 +48,11 @@ function Pinpad() {
     setMessage((message) => message + "*");
   };
 
+ 
   const clearPin = () => {
+    if(message === 'LOCKED'){
+      return
+    }
     setPin("");
     setMessage("");
   };
